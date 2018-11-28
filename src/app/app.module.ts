@@ -7,11 +7,12 @@ import {FormsModule} from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { AppRoutingModule } from './app-routing.module';
 import {
+  MatBadgeModule,
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule, MatGridListModule,
+  MatFormFieldModule, MatGridListModule, MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatProgressSpinnerModule,
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
@@ -37,6 +38,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatButtonModule,
     MatTableModule,
     MatGridListModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatBadgeModule,
     BrowserAnimationsModule
 
   ],

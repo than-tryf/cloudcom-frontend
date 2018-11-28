@@ -11,3 +11,8 @@
 .mat-card-image {
   max-height: 400px !important;
 }
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 2px;
+}
