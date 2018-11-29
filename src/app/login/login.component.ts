@@ -20,7 +20,10 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.authenticationService.login(this.username, this.password).subscribe(
       data => {
-        console.log(data);
+        console.log(data.body);
+      },
+      error => {
+        console.log(error);
       }
     );
   }

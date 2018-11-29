@@ -12,7 +12,7 @@ export class ProductsService {
 
 
   getAll(): Observable<any> {
-    return this.http.get('http://10.16.3.98:10011/api/v1/all');
+    return this.http.get('http://10.16.3.98:10012/api/v1/all');
   }
 
 }
