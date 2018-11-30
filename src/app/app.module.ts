@@ -22,12 +22,14 @@ import {AuthenticationService} from './shared/authentication/authentication.serv
 import {JwtInterceptor} from './interceptors/jwt.interceptor';
 import {ProductsService} from './shared/products/products.service';
 import {AuthGuard} from './guards/auth.guard';
+import { ProductItemComponent } from './products/product-item/product-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
