@@ -1,5 +1,9 @@
 
 <mat-card class="example-card">
+  <mat-chip-list>
+    <mat-chip *ngIf="errorExists" color="accent">{{errorMsg}}</mat-chip>
+  </mat-chip-list>
+  <!--<div *ngIf="errorExists" class="mat-error">{{errorMsg}}</div>-->
   <mat-card-header>
     <mat-card-title>Login to Microservices Book Store</mat-card-title>
   </mat-card-header>

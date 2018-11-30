@@ -9,15 +9,19 @@ import { AppRoutingModule } from './app-routing.module';
 import {
   MatBadgeModule,
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatChipsModule,
   MatFormFieldModule, MatGridListModule, MatIconModule,
   MatInputModule,
   MatListModule, MatProgressSpinnerModule,
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthenticationService} from './shared/authentication/authentication.service';
+import {JwtInterceptor} from './interceptors/jwt.interceptor';
+import {ProductsService} from './shared/products/products.service';
+import {AuthGuard} from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -41,10 +45,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatProgressSpinnerModule,
     MatIconModule,
     MatBadgeModule,
+    MatChipsModule,
     BrowserAnimationsModule
 
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    AuthGuard,
+    ProductsService,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

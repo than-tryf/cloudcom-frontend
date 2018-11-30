@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../shared/authentication/authentication.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,22 +9,35 @@ import {AuthenticationService} from '../shared/authentication/authentication.ser
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
 
   username: string;
   password: string;
 
+  returnUrl: string;
+
+  errorExists = false;
+  errorMsg = '';
+
   ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
 
   onLogin() {
+    this.errorExists = false;
+    this.errorMsg = '';
     this.authenticationService.login(this.username, this.password).subscribe(
       data => {
-        console.log(data.body);
+        if (data.body.hasOwnProperty('accessToken')) {
+          localStorage.setItem('jwttoken', JSON.stringify(data.body['accessToken']));
+          console.log(data.body['accessToken']);
+          this.router.navigate([this.returnUrl]);
+        }
       },
       error => {
-        console.log(error);
+        this.errorExists = true;
+        this.errorMsg = 'Invalid Credentials';
       }
     );
   }
