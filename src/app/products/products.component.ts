@@ -13,6 +13,7 @@ export class ProductsComponent implements OnInit {
   ratings = [];
   sum = 0;
 
+
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
