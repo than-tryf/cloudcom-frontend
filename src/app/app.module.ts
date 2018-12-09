@@ -13,7 +13,7 @@ import {
   MatFormFieldModule, MatGridListModule, MatIconModule,
   MatInputModule,
   MatListModule, MatProgressSpinnerModule,
-  MatTableModule,
+  MatTableModule, MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -48,6 +48,7 @@ import { ProductItemComponent } from './products/product-item/product-item.compo
     MatIconModule,
     MatBadgeModule,
     MatChipsModule,
+    MatTabsModule,
     BrowserAnimationsModule
 
   ],

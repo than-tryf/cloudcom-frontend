@@ -15,4 +15,8 @@ export class ProductsService {
     return this.http.get('http://10.16.3.98:10012/api/v1/all');
   }
 
+  getBook(bookid: string): Observable<any> {
+    return this.http.get('http://10.16.3.98:10012/api/v1/product/' + bookid);
+  }
+
 }

@@ -13,7 +13,7 @@
       <p [innerHTML]="product.book.description"></p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary">More Info</button>
+      <button [routerLink]="['/products', product.book.id]" mat-raised-button color="primary">More Info</button>
     </mat-card-actions>
   </mat-card></mat-grid-tile>
 </mat-grid-list>
